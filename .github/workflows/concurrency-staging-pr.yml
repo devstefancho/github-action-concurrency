@@ -1,7 +1,7 @@
 name: Concurrency PR Test
 
 on:
-  pull_request:
+  push:
     branches: [ staging ]
 
 concurrency:
