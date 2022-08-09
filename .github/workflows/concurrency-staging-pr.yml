@@ -1,0 +1,26 @@
+name: Concurrency PR Test
+
+on:
+  pull_request:
+    branches: [ staging ]
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
+
+jobs:
+  build-deploy-alpha:
+    name: Sleep 5 minutes
+    runs-on: ubuntu-latest
+    steps:
+      - name: build alpha
+        run: |
+          echo "build staging..."
+          sleep 2m
+          echo "finish build alpha!"
+
+      - name: deploy alpha
+        run: |
+          echo "deploy staging..."
+          sleep 2m
+          echo "finish deploy alpha!"
