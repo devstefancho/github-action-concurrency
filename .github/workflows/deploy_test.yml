@@ -1,0 +1,22 @@
+# 수동 workflow test
+
+name: 🚀 Deploy Manual Test
+
+# alpha deploy test
+on:
+  workflow_dispatch:
+    inputs:
+      test-alpha:
+        description: 'Test for deploy'
+        required: true
+        type: boolean
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+      - name: Test
+        run: |
+          echo "test 브랜치 입니다!"
